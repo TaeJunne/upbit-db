@@ -8,4 +8,4 @@ app.listen(5000, () => {
 
 const tokenController = new TokenController()
 
-tokenController.createMinutesCandle
+tokenController.createMinutesCandle()
