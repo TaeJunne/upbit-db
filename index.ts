@@ -3,7 +3,8 @@ import { TokenController } from './token/token.controller'
 const app = express();
 
 const tokenController = new TokenController()
-tokenController.createMinutesCandle()
+
+setInterval(tokenController.createMinutesCandle, 3600000)
 
 app.listen(5000, () => {
   console.log(`✅ START CONNECTION 🚀 `)
