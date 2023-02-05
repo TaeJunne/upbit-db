@@ -24,8 +24,10 @@ export class TokenController {
   async createMinutesCandle() {
     console.log(`Running at ${Date.now().toLocaleString()}`)
     for (let i=1; i < krwTokens.length+1; i++) {
+
       const start = Date.now();
-      const responses: ResponseType[] = await this.upbit.getMinutesCandles(30, krwTokens[i-1].market, 2);
+      const responses: ResponseType[] = await this.upbit.getMinutesCandles(30, krwTokens[i-1].market, 3);
+      
       console.log(krwTokens[i-1].market)
       for (let j=responses.length-1; j > 0; j--) {
         const matchData = await this.tokenService.getMunitesCandleDateTime(krwTokens[i-1].en_name, responses[j].candle_date_time_kst)

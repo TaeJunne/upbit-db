@@ -44,4 +44,12 @@ export class TokenService {
 
     return result[0]
   }
+
+  async delete(tokenName: string, candle_date_time_kst: string): Promise<any> {
+    const result = await pool.query(
+      `delete from ${tokenName} where candle_date_time_kst = '${candle_date_time_kst}'`
+    )
+
+    return result[0]
+  }
 }

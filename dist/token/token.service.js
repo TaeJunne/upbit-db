@@ -38,5 +38,9 @@ class TokenService {
         const result = await database_1.default.query(`select candle_date_time_utc from ${tokenName} where candle_date_time_kst = ?`, [candle_date_time_kst]);
         return result[0];
     }
+    async delete(tokenName, candle_date_time_kst) {
+        const result = await database_1.default.query(`delete from ${tokenName} where candle_date_time_kst = '${candle_date_time_kst}'`);
+        return result[0];
+    }
 }
 exports.TokenService = TokenService;
