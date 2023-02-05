@@ -9,10 +9,10 @@ class TokenController {
     upbit = new upbit_1.Upbit();
     tokenService = new token_service_1.TokenService();
     async createMinutesCandle() {
-        console.log(`Begin at ${Date.now()}`);
+        console.log(`Running at ${Date.now().toLocaleString()}`);
         for (let i = 1; i < tokens_1.krwTokens.length + 1; i++) {
             const start = Date.now();
-            const responses = await this.upbit.getMinutesCandles(30, tokens_1.krwTokens[i - 1].market, 3);
+            const responses = await this.upbit.getMinutesCandles(30, tokens_1.krwTokens[i - 1].market, 5);
             console.log(tokens_1.krwTokens[i - 1].market);
             for (let j = responses.length - 1; j > 0; j--) {
                 const matchData = await this.tokenService.getMunitesCandleDateTime(tokens_1.krwTokens[i - 1].en_name, responses[j].candle_date_time_kst);
