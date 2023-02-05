@@ -22,7 +22,7 @@ export class TokenController {
   tokenService = new TokenService()
 
   async createMinutesCandle() {
-    console.log(`Starting at ${Date.now()}`)
+    console.log(`Begin at ${Date.now()}`)
     for (let i=1; i < krwTokens.length+1; i++) {
       const start = Date.now();
       const responses: ResponseType[] = await this.upbit.getMinutesCandles(30, krwTokens[i-1].market, 5);
