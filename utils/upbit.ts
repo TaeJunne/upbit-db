@@ -1,3 +1,5 @@
+import fetch from "node-fetch"
+
 export class Upbit {
   baseURL = 'https://api.upbit.com/v1'
   options = {method: 'GET', headers: {accept: 'application/json'}}
