@@ -7,7 +7,7 @@ const express_1 = __importDefault(require("express"));
 const token_controller_1 = require("./token/token.controller");
 const app = (0, express_1.default)();
 const tokenController = new token_controller_1.TokenController();
-tokenController.createMinutesCandle();
+setInterval(tokenController.createMinutesCandle, 30 * 60 * 1000);
 app.listen(5000, () => {
     console.log(`✅ START CONNECTION 🚀 `);
 });

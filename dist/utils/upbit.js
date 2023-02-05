@@ -6,10 +6,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Upbit = void 0;
 const node_fetch_1 = __importDefault(require("node-fetch"));
 class Upbit {
-    constructor() {
-        this.baseURL = 'https://api.upbit.com/v1';
-        this.options = { method: 'GET', headers: { accept: 'application/json' } };
-    }
+    baseURL = 'https://api.upbit.com/v1';
+    options = { method: 'GET', headers: { accept: 'application/json' } };
     getAllMarkets() {
         const response = (0, node_fetch_1.default)(`${this.baseURL}/market/all?isDetails=false`, this.options);
         return response.then(res => res.json());
