@@ -4,7 +4,6 @@
   "description": "업비트 api를 이용해 token 정보 db에 저장",
   "main": "index.js",
   "author": "t-junne",
-  "license": "MIT",
   "private": false,
   "type": "module",
   "scripts": {
