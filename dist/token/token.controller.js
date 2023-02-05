@@ -21,6 +21,7 @@ class TokenController {
     }
     createMinutesCandle() {
         return __awaiter(this, void 0, void 0, function* () {
+            console.log('Starting');
             for (let i = 1; i < tokens_1.krwTokens.length + 1; i++) {
                 const start = Date.now();
                 const responses = yield this.upbit.getMinutesCandles(30, tokens_1.krwTokens[i - 1].market, 5);
