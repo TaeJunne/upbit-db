@@ -26,7 +26,7 @@ export class TokenController {
     for (let i=1; i < krwTokens.length+1; i++) {
 
       const start = Date.now();
-      const responses: ResponseType[] = await this.upbit.getMinutesCandles(30, krwTokens[i-1].market, 5);
+      const responses: ResponseType[] = await this.upbit.getMinutesCandles(30, krwTokens[i-1].market, 3);
       // await this.tokenService.delete(krwTokens[i-1].en_name, responses[1].candle_date_time_kst)
       //   await this.tokenService.delete(krwTokens[i-1].en_name, responses[2].candle_date_time_kst)
       console.log(krwTokens[i-1].market)
