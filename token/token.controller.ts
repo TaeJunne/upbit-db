@@ -26,12 +26,13 @@ export class TokenController {
     for (let i=1; i < krwTokens.length+1; i++) {
 
       const start = Date.now();
-      const responses: ResponseType[] = await this.upbit.getMinutesCandles(30, krwTokens[i-1].market, 3);
-      
+      const responses: ResponseType[] = await this.upbit.getMinutesCandles(30, krwTokens[i-1].market, 5);
+      // await this.tokenService.delete(krwTokens[i-1].en_name, responses[1].candle_date_time_kst)
+      //   await this.tokenService.delete(krwTokens[i-1].en_name, responses[2].candle_date_time_kst)
       console.log(krwTokens[i-1].market)
       for (let j=responses.length-1; j > 0; j--) {
         const matchData = await this.tokenService.getMunitesCandleDateTime(krwTokens[i-1].en_name, responses[j].candle_date_time_kst)
-
+        
         if (matchData[0] && matchData[0].candle_date_time_utc === responses[j].candle_date_time_utc) {}
         else {
           await this.tokenService.createMinutesCandle(krwTokens[i-1].en_name, responses[j]) 
